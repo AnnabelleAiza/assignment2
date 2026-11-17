@@ -4,12 +4,7 @@
  */
 package com.mycompany.assignment02_annabelle_aizanman;
 
-import javafx.animation.RotateTransition;
-import javafx.scene.Group;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Polygon;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Text;
 
 /**
  *
@@ -23,7 +18,7 @@ public class CarRaceModel{
     private final double speed;
     private final Color color;
     
-    public carRaceModel(String type, int number, double x, double y, double speed, Color color){
+    public CarRaceModel(String type, int number, double x, double y, double speed, Color color){
         this.type = type;
         this.number = number;
         this.x = x;
