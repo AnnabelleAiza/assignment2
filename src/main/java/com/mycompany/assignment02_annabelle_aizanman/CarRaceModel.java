@@ -15,36 +15,52 @@ import javafx.scene.text.Text;
  *
  * @author annab
  */
-public class CarRaceModel extends Group {
-    private final Group frontWheel;
-    private final Group rearWheel;
-    private final RotateTransition frontRotation;
-    private final RotateTransition rearRotation;
+public class CarRaceModel{
+    private final String type;
+    private final int number;
+    private double x;
+    private final double y;
+    private final double speed;
+    private final Color color;
     
-    public CarView(int num, Color color) {
-        
-        
-        //wheels
-        rearWheel = createWheel(25,50);
-        frontWheen = creatWheel(105,50);
+    public carRaceModel(String type, int number, double x, double y, double speed, Color color){
+        this.type = type;
+        this.number = number;
+        this.x = x;
+        this.y = y;
+        this.speed = speed;
+        this.color = color;
     }
     
-    private Group creatWheel(double x, double y){
-        
+    public void updatePosition(double distance){
+        x += distance;
     }
     
-    private RotateTransition createRotation(Group wheel){
-        
+    public void resetPosition(double startingX){
+        x = startingX;
     }
     
-    public void startWheels(){
-        
+    public String getType() {
+        return type;
     }
     
-    public void pauseWheels(){
-        
+    public int getNumber() {
+        return number;
     }
     
-    public void stopWheels(){
-    }    
+    public double getX() {
+        return x;
+    }
+    
+    public double getY() {
+        return y;
+    }
+    
+    public double getSpeed() {
+        return speed;
+    }
+    
+    public Color getColor(){
+        return color;
+    }
 }
