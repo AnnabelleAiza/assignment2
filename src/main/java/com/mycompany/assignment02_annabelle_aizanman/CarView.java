@@ -4,6 +4,9 @@
  */
 package com.mycompany.assignment02_annabelle_aizanman;
 
+import javafx.animation.Animation;
+import javafx.animation.Interpolator;
+import javafx.animation.RotateTransition;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -11,6 +14,7 @@ import javafx.scene.shape.Line;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
 
 
 
@@ -25,6 +29,9 @@ public class CarView {
     private Circle rearWheel;
     private Line frontLine;
     private Line rearLine;
+    
+    private RotateTransition frontRotation;
+    private RotateTransition rearRotation;
     
     public CarView(int num, Color color){
         carPane = new Pane();
@@ -71,6 +78,18 @@ public class CarView {
         
         carPane.getChildren().addAll(body, window1, window2, rearWheel, frontWheel,
                 rearLine, frontLine, carNumber);
+        
+        //rearRotation animation
+        rearRotation = new RotateTransition(Duration.seconds(0.5), rearLine);
+        rearRotation.setByAngle(360);
+        rearRotation.setCycleCount(Animation.INDEFINITE);
+        rearRotation.setInterpolator(Interpolator.LINEAR);
+        
+        //frontRotation animation
+        frontRotation = new RotateTransition(Duration.seconds(0.5), frontLine);
+        frontRotation.setByAngle(360);
+        frontRotation.setCycleCount(Animation.INDEFINITE);
+        frontRotation.setInterpolator(Interpolator.LINEAR);
     }
     
     public Pane getCarPane(){
@@ -91,5 +110,27 @@ public class CarView {
     public void rotateWheels(double angle){
         rearLine.setRotate(angle);
         frontLine.setRotate(angle);
+    }
+    
+    public void startWheels(){
+        rearRotation.play();
+        frontRotation.play();
+    }
+    
+    public void pauseWheels(){
+        rearRotation.pause();
+        frontRotation.pause();
+    }
+    
+    public void stopWheels(){
+        rearRotation.stop();
+        frontRotation.stop();
+        rearLine.setRotate(0);
+        frontLine.setRotate(0);
+    }
+    
+    public void setWheelrate(double rate){
+        rearRotation.setRate(rate);
+        frontRotation.setRate(rate);
     }
 }
