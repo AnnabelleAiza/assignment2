@@ -47,6 +47,10 @@ public class CarRaceModel{
         return x;
     }
     
+    public double setX(double x){
+        return this.x = x;
+    }
+    
     public double getY() {
         return y;
     }

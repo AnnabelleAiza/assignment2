@@ -8,12 +8,12 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.assignment02_annabelle_aizanman.PrimaryController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.assignment02_annabelle_aizanman.PrimaryController">
    <top>
-      <Label alignment="CENTER" text="Car Race Simulation" BorderPane.alignment="CENTER">
+      <Label alignment="CENTER" text="Car Race Simulation" textFill="WHITE" BorderPane.alignment="CENTER">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
@@ -23,7 +23,29 @@
       </Label>
    </top>
    <center>
-      <Pane fx:id="racePane" prefHeight="300.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <Pane fx:id="racePane" prefHeight="300.0" prefWidth="200.0" style="-fx-background-color: #344454;" BorderPane.alignment="CENTER">
+         <children>
+            <Line endX="100.0" layoutX="470.0" layoutY="240.0" startX="100.0" startY="-45.0" stroke="WHITE" strokeWidth="3.0" />
+            <Line endX="100.0" layoutX="470.0" layoutY="140.0" startX="100.0" startY="45.0" stroke="WHITE" strokeWidth="3.0" />
+            <Line endX="100.0" endY="-45.0" layoutX="470.0" layoutY="130.0" startX="100.0" stroke="WHITE" strokeWidth="3.0" />
+            <Line endX="-100.0" endY="45.0" layoutX="670.0" layoutY="30.0" startX="-100.0" stroke="WHITE" strokeWidth="3.0" />
+            <Line endX="465.62628173828125" endY="7.62939453125E-6" layoutX="107.0" layoutY="80.0" startX="-100.0" />
+            <Line endX="464.9595947265625" layoutX="107.0" layoutY="135.0" startX="-100.0" />
+            <Line endX="432.33331298828125" layoutX="139.0" layoutY="190.0" startX="-131.66665649414062" />
+            <Label layoutX="14.0" layoutY="5.0" text="START" textFill="#a2edbf">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="533.0" layoutY="6.0" text="FINISH" textFill="#a2edbf">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+         <BorderPane.margin>
+            <Insets left="10.0" right="10.0" />
+         </BorderPane.margin></Pane>
    </center>
    <bottom>
       <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0" BorderPane.alignment="CENTER">
@@ -32,29 +54,29 @@
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="startBtn" mnemonicParsing="false" prefWidth="60.0" text="Start">
+                        <Button fx:id="startBtn" mnemonicParsing="false" onAction="#startRace" prefWidth="60.0" text="Start">
                            <HBox.margin>
                               <Insets left="40.0" right="20.0" top="15.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="pauseBtn" mnemonicParsing="false" prefWidth="60.0" text="Pause">
+                        <Button fx:id="pauseBtn" mnemonicParsing="false" onAction="#pauseRace" prefWidth="60.0" text="Pause">
                            <HBox.margin>
                               <Insets right="20.0" top="15.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="resetBtn" mnemonicParsing="false" prefWidth="60.0" text="Reset">
+                        <Button fx:id="resetBtn" mnemonicParsing="false" onAction="#resetRace" prefWidth="60.0" text="Reset">
                            <HBox.margin>
                               <Insets top="15.0" />
                            </HBox.margin>
                         </Button>
                      </children>
                   </HBox>
-                  <Label alignment="CENTER" text="Simulation speed">
+                  <Label fx:id="speedLbl" alignment="CENTER" text="Simulation speed" textFill="WHITE">
                      <VBox.margin>
                         <Insets bottom="10.0" left="90.0" />
                      </VBox.margin>
                   </Label>
-                  <Slider max="3.0" min="0.5" value="1.0">
+                  <Slider fx:id="speedSlider" max="3.0" min="0.5" value="1.0">
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin>
@@ -66,7 +88,7 @@
             </VBox>
             <VBox fx:id="raceResultsVBox" prefHeight="200.0" prefWidth="290.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="120.0" text="Race Results">
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="120.0" text="Race Results" textFill="WHITE">
                      <VBox.margin>
                         <Insets left="90.0" />
                      </VBox.margin>
@@ -74,18 +96,13 @@
                         <Font name="System Bold Italic" size="12.0" />
                      </font>
                   </Label>
-                  <Label fx:id="resultsLbl" text="Waiting for race...">
+                  <Label fx:id="resultsLbl" text="Waiting for race..." textFill="WHITE">
                      <VBox.margin>
-                        <Insets left="5.0" top="15.0" />
+                        <Insets left="5.0" top="5.0" />
                      </VBox.margin>
                      <font>
                         <Font size="14.0" />
                      </font>
-                  </Label>
-                  <Label fx:id="winnerLbl">
-                     <VBox.margin>
-                        <Insets left="5.0" top="5.0" />
-                     </VBox.margin>
                   </Label>
                </children>
             </VBox>
