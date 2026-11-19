@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.assignment02_annabelle_aizanman.PrimaryController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.assignment02_annabelle_aizanman.PrimaryController">
    <top>
       <Label alignment="CENTER" text="Car Race Simulation" textFill="WHITE" BorderPane.alignment="CENTER">
          <font>
@@ -23,25 +23,25 @@
       </Label>
    </top>
    <center>
-      <Pane fx:id="racePane" prefHeight="300.0" prefWidth="200.0" style="-fx-background-color: #344454;" BorderPane.alignment="CENTER">
+      <Pane fx:id="racePane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="420.0" prefWidth="780.0" style="-fx-background-color: #344454;" BorderPane.alignment="CENTER">
          <children>
-            <Line endX="100.0" layoutX="470.0" layoutY="240.0" startX="100.0" startY="-45.0" stroke="WHITE" strokeWidth="3.0" />
-            <Line endX="100.0" layoutX="470.0" layoutY="140.0" startX="100.0" startY="45.0" stroke="WHITE" strokeWidth="3.0" />
-            <Line endX="100.0" endY="-45.0" layoutX="470.0" layoutY="130.0" startX="100.0" stroke="WHITE" strokeWidth="3.0" />
-            <Line endX="-100.0" endY="45.0" layoutX="670.0" layoutY="30.0" startX="-100.0" stroke="WHITE" strokeWidth="3.0" />
-            <Line endX="465.62628173828125" endY="7.62939453125E-6" layoutX="107.0" layoutY="80.0" startX="-100.0" />
-            <Line endX="464.9595947265625" layoutX="107.0" layoutY="135.0" startX="-100.0" />
-            <Line endX="432.33331298828125" layoutX="139.0" layoutY="190.0" startX="-131.66665649414062" />
+            <Line endX="380.0" endY="7.62939453125E-6" layoutX="402.0" layoutY="124.0" startX="-403.0" />
+            <Line endX="380.0" layoutX="402.0" layoutY="222.0" startX="-402.0" />
+            <Line endX="351.5" endY="0.5" layoutX="428.0" layoutY="320.0" startX="-427.6666564941406" />
             <Label layoutX="14.0" layoutY="5.0" text="START" textFill="#a2edbf">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="533.0" layoutY="6.0" text="FINISH" textFill="#a2edbf">
+            <Label layoutX="734.0" layoutY="6.0" text="FINISH" textFill="#a2edbf">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
+            <Line endX="100.0" endY="-10.0" layoutX="680.0" layoutY="129.0" startX="100.0" startY="-100.0" stroke="WHITE" />
+            <Line endX="100.0" endY="-50.0" layoutX="680.0" layoutY="267.0" startX="100.0" startY="-140.0" stroke="WHITE" />
+            <Line endX="100.0" layoutX="680.0" layoutY="315.0" startX="100.0" startY="-90.0" stroke="WHITE" />
+            <Line endX="100.0" endY="-10.0" layoutX="680.0" layoutY="424.0" startX="100.0" startY="-100.0" stroke="WHITE" />
          </children>
          <BorderPane.margin>
             <Insets left="10.0" right="10.0" />
@@ -86,11 +86,11 @@
                   </Slider>
                </children>
             </VBox>
-            <VBox fx:id="raceResultsVBox" prefHeight="200.0" prefWidth="290.0">
+            <VBox fx:id="raceResultsVBox" prefHeight="100.0" prefWidth="551.0">
                <children>
                   <Label alignment="CENTER" prefHeight="17.0" prefWidth="120.0" text="Race Results" textFill="WHITE">
                      <VBox.margin>
-                        <Insets left="90.0" />
+                        <Insets left="90.0" top="10.0" />
                      </VBox.margin>
                      <font>
                         <Font name="System Bold Italic" size="12.0" />

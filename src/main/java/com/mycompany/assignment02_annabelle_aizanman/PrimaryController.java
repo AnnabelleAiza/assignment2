@@ -55,10 +55,10 @@ public class PrimaryController {
         
         finishOrder = new ArrayList<>();
         
-        models[0] = new CarRaceModel("Sports", 23, 20, 25, 115, Color.BLUE);
-        models[1] = new CarRaceModel("Sedan", 7, 20, 125,130, Color.RED);
-        models[2] = new CarRaceModel("Coupe", 10, 20, 225, 205, Color.GREEN);
-        models[3] = new CarRaceModel("Racing", 15, 20, 325, 120, Color.YELLOW);
+        models[0] = new CarRaceModel("Sports", 23, 20, 50, 100 + Math.random() * 150, Color.BLUE);
+        models[1] = new CarRaceModel("Sedan", 7, 20, 150,100 + Math.random() * 150, Color.RED);
+        models[2] = new CarRaceModel("Coupe", 10, 20, 245, 100 + Math.random() * 150, Color.GREEN);
+        models[3] = new CarRaceModel("Racing", 15, 20, 345, 100 + Math.random() * 150, Color.YELLOW);
         
         for(int i = 0; i < models.length; i++){
             CarRaceModel model = models[i];
@@ -143,6 +143,11 @@ public class PrimaryController {
         for(int i = 0; i < 4; i++){
             movements[i].stop();
             cars[i].stopWheels();
+            
+            double newSpeed = 100 + Math.random() * 150;
+            models[i].setSpeed(newSpeed);
+            movements[i].setRate((newSpeed /150) * speedSlider.getValue());
+            
             cars[i].getCarPane().setTranslateX(0);
             models[i].resetPosition(20);
             cars[i].setX(models[i].getX());
@@ -167,10 +172,21 @@ public class PrimaryController {
         finishedCount++;
         
         //for the winner
+        String colorName = "";
         if(finishedCount == 1){
             CarRaceModel winner = models[idx];
+            if (winner.getColor().equals(Color.BLUE)){
+                colorName = "Blue";
+            } else if (winner.getColor().equals(Color.RED)){
+                colorName = "Red";
+            } else if (winner.getColor().equals(Color.GREEN)){
+                colorName = "Green";
+            } else if (winner.getColor().equals(Color.YELLOW)){
+                colorName = "Yellow";
+            }   
+            
             resultsLbl.setText("Winner: Car #" + winner.getNumber() + 
-                    "(" + winner.getColor() + ")");
+                    "(" + colorName + ")");
         }
         
         //once they are all finished
@@ -185,12 +201,25 @@ public class PrimaryController {
         CarRaceModel winner = models[finishOrder.get(0)];
         
         String results = "Congratulations! Car #" + winner.getNumber() + 
-                " is the winner!\n\n" + "Final Results:\n";
+                " is the winner!  " + "Final Results:\n";
         
         for(int i = 0; i < finishOrder.size(); i++){
             int carIdx = finishOrder.get(i);
-            results += (i + 1) + ". Car #" + models[carIdx].getNumber() + "\n";
+            CarRaceModel car = models[carIdx];
             
+            String colorName = "";
+
+        if (car.getColor().equals(Color.BLUE)) {
+            colorName = "Blue";
+        } else if (car.getColor().equals(Color.RED)) {
+            colorName = "Red";
+        } else if (car.getColor().equals(Color.GREEN)) {
+            colorName = "Green";
+        } else if (car.getColor().equals(Color.YELLOW)) {
+            colorName = "Yellow";
+        }
+        
+            results += (i + 1) + ". Car #" + car.getNumber() + "(" + colorName + ")" + "\n";
         }
         
         resultsLbl.setText(results);

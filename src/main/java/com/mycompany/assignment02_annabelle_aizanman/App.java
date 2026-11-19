@@ -17,7 +17,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
+        scene = new Scene(loadFXML("slideshow"), 700, 400);
         stage.setScene(scene);
         stage.show();
     }
@@ -32,7 +32,7 @@ public class App extends Application {
         if(fxml.equals("slideshow")){
             path = "/fxml/slideshow.fxml";
         }else{
-            path = "/com/mycompany/assignmeny02_annabell_aizanman/" + fxml + ".fxml";
+            path = "/com/mycompany/assignment02_annabelle_aizanman/" + fxml + ".fxml";
         }
         
         FXMLLoader loader = new FXMLLoader(App.class.getResource(path));

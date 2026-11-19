@@ -15,7 +15,7 @@ public class CarRaceModel{
     private final int number;
     private double x;
     private final double y;
-    private final double speed;
+    private double speed;
     private final Color color;
     
     public CarRaceModel(String type, int number, double x, double y, double speed, Color color){
@@ -57,6 +57,10 @@ public class CarRaceModel{
     
     public double getSpeed() {
         return speed;
+    }
+    
+    public void setSpeed(double speed){
+        this.speed = speed;
     }
     
     public Color getColor(){

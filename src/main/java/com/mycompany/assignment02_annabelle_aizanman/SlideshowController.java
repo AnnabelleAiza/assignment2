@@ -59,6 +59,7 @@ public class SlideshowController {
     
     private void updateButtons(){
         previousBtn.setVisible(currentCar > 0);
+        
         nextBtn.setVisible(currentCar < images.length-1);
     }
     
@@ -68,6 +69,7 @@ public class SlideshowController {
         Image image = new Image(getClass().getResource(path).toExternalForm());
         carImage.setImage(image);
         countlbl.setText("Car "+ (currentCar + 1) + " of 4");
+        updateButtons();
     }
     
         @FXML
@@ -89,11 +91,6 @@ public class SlideshowController {
     @FXML
     private void startRace() throws IOException{
         App.setRoot("primary");
-//        Parent root = FXMLLoader.load(getClass.getResource(
-//        "/com/mycompany/assignment02_annabelle_aizanman/primary.fxml"));
-//        
-//        Stage stage = (stage)startBtn.getScene();
-//        stage.setScene(new Scene(root));
     }
 }
 
