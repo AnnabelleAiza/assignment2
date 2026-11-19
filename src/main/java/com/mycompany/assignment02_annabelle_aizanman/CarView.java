@@ -33,6 +33,11 @@ public class CarView {
     private RotateTransition frontRotation;
     private RotateTransition rearRotation;
     
+    /**
+     * Creates the image of the car using geometric shapes
+     * @param num the number on the car
+     * @param color the color of the car
+     */
     public CarView(int num, Color color){
         carPane = new Pane();
         carPane.setPrefSize(140, 70);
@@ -96,32 +101,50 @@ public class CarView {
         return carPane;
     }
     
-    //to move the car horizontally
+    /**
+     * moves the car horizontally
+     * @param x the horizontal position
+     */
     public void setX(double x){
         carPane.setLayoutX(x);
     }
     
-    //to move the car vertically
+    /**
+     * moves the car vertically to make sure its in the proper position
+     * @param y the vertical position of the car
+     */
     public void setY(double y){
         carPane.setLayoutY(y);
     }
     
-    //rotate the lines on the wheels to show that they turn
+    /**
+     * rotate the lines on the wheels to make them appear to spin
+     * @param angle  the angle of rotation in degrees
+     */
     public void rotateWheels(double angle){
         rearLine.setRotate(angle);
         frontLine.setRotate(angle);
     }
     
+    /**
+     * starts the turning of the wheels
+     */
     public void startWheels(){
         rearRotation.play();
         frontRotation.play();
     }
     
+    /**
+     * pauses the turning of the wheels
+     */
     public void pauseWheels(){
         rearRotation.pause();
         frontRotation.pause();
     }
     
+    /**
+     * stops the turning of the wheels
+     */
     public void stopWheels(){
         rearRotation.stop();
         frontRotation.stop();
@@ -129,6 +152,10 @@ public class CarView {
         frontLine.setRotate(0);
     }
     
+    /**
+     * sets the rate at which the wheels turn
+     * @param rate 
+     */
     public void setWheelrate(double rate){
         rearRotation.setRate(rate);
         frontRotation.setRate(rate);

@@ -109,6 +109,10 @@ public class PrimaryController {
         movements[idx] = movement;
     }
 
+    /**
+     * Starts the race!
+     * @param event clicking the start button
+     */
     @FXML
     private void startRace(ActionEvent event) {
         if(raceFinished){
@@ -124,6 +128,10 @@ public class PrimaryController {
         resultsLbl.setText("Race in progress!");
     }
 
+    /**
+     * controls the pausing of the race
+     * @param event clicking the pause button
+     */
     @FXML
     private void pauseRace(ActionEvent event) {
         if(!raceStarted || raceFinished){
@@ -138,6 +146,10 @@ public class PrimaryController {
         resultsLbl.setText("Race Paused.");
     }
 
+    /**
+     * controls the rest button, resets the race to the beginning, and gives the cars different speeds so it is never the same winner
+     * @param event clicking the rest button
+     */
     @FXML
     private void resetRace(ActionEvent event) {
         for(int i = 0; i < 4; i++){
@@ -162,6 +174,10 @@ public class PrimaryController {
         resultsLbl.setText("Waiting for race...");
     }
     
+    /**
+     * Controls what happens when the cars finish the race
+     * @param idx the index of the car thats finished
+     */
     public void carFinished(int idx){
         cars[idx].stopWheels();
         //updates model to record its final position
@@ -197,6 +213,9 @@ public class PrimaryController {
         }
     }
     
+    /**
+     * displays the results of the race
+     */
     private void displayResults(){
         CarRaceModel winner = models[finishOrder.get(0)];
         

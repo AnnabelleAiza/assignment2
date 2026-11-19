@@ -57,12 +57,18 @@ public class SlideshowController {
         player.play();
     }
     
+    /**
+     * updates the previous and next buttons so they aren't seen when unnecessary
+     */
     private void updateButtons(){
         previousBtn.setVisible(currentCar > 0);
         
         nextBtn.setVisible(currentCar < images.length-1);
     }
     
+    /**
+     * shows the drawings of the cars that I drew in the slideshow
+     */
     private void showCar() {
         String path = "/images/" + images[currentCar];
     
@@ -72,7 +78,10 @@ public class SlideshowController {
         updateButtons();
     }
     
-        @FXML
+    /**
+     * lets the slideshow go to the next slide
+     */
+    @FXML
     private void nextCar(){
         if(currentCar < images.length -1){
             currentCar++;
@@ -80,6 +89,9 @@ public class SlideshowController {
         }
     }
     
+    /**
+     * lets the slideshow go to the last slide
+     */
     @FXML
     private void previousCar(){
         if(currentCar >0){
@@ -88,6 +100,11 @@ public class SlideshowController {
         }
     }
     
+    /**
+     * brings you to the next slide where the race takes place
+     * @throws IOException can occur if java has trouble reading the FXML file,
+     * it tells java that this method might produce that error
+     */
     @FXML
     private void startRace() throws IOException{
         App.setRoot("primary");

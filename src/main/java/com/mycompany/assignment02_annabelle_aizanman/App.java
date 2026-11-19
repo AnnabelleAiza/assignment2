@@ -26,6 +26,12 @@ public class App extends Application {
         scene.setRoot(loadFXML(fxml));
     }
 
+    /**
+     * loads the requested FXML file to display a screen
+     * @param fxml the name of the FXML file to load
+     * @return the root node of the loaded FXML file
+     * @throws IOException if the FXML file cannot be loaded
+     */
     private static Parent loadFXML(String fxml) throws IOException {
         String path;
         

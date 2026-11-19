@@ -27,10 +27,18 @@ public class CarRaceModel{
         this.color = color;
     }
     
+    /**
+     * updates the car's horizontal position by adding the distance traveled
+     * @param distance  the distance traveled
+     */
     public void updatePosition(double distance){
         x += distance;
     }
     
+    /**
+     * resets the car's position to the starting position
+     * @param startingX the starting position
+     */
     public void resetPosition(double startingX){
         x = startingX;
     }
