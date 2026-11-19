@@ -27,8 +27,16 @@ public class App extends Application {
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-        return fxmlLoader.load();
+        String path;
+        
+        if(fxml.equals("slideshow")){
+            path = "/fxml/slideshow.fxml";
+        }else{
+            path = "/com/mycompany/assignmeny02_annabell_aizanman/" + fxml + ".fxml";
+        }
+        
+        FXMLLoader loader = new FXMLLoader(App.class.getResource(path));
+        return loader.load();
     }
 
     public static void main(String[] args) {

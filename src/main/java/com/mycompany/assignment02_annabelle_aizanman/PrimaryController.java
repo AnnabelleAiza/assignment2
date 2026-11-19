@@ -56,9 +56,9 @@ public class PrimaryController {
         finishOrder = new ArrayList<>();
         
         models[0] = new CarRaceModel("Sports", 23, 20, 25, 115, Color.BLUE);
-        models[1] = new CarRaceModel("Sedan", 45, 20, 125,130, Color.RED);
-        models[2] = new CarRaceModel("Coupe", 78, 20, 225, 205, Color.GREEN);
-        models[3] = new CarRaceModel("Racing", 88, 20, 325, 120, Color.ORANGE);
+        models[1] = new CarRaceModel("Sedan", 7, 20, 125,130, Color.RED);
+        models[2] = new CarRaceModel("Coupe", 10, 20, 225, 205, Color.GREEN);
+        models[3] = new CarRaceModel("Racing", 15, 20, 325, 120, Color.YELLOW);
         
         for(int i = 0; i < models.length; i++){
             CarRaceModel model = models[i];
