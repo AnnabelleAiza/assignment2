@@ -13,6 +13,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 /**
@@ -43,9 +45,16 @@ public class SlideshowController {
     
     private String[] images = {"car1.png", "car2.png", "car3.png", "car4.png"};
     
+    private MediaPlayer player;
+    
     @FXML
     private void initialize(){
-        showCar();   
+        showCar(); 
+        
+        String soundPath = getClass().getResource("/sounds/engine.mp3").toExternalForm();
+        Media sound = new Media(soundPath);
+        player = new MediaPlayer(sound);
+        player.play();
     }
     
     private void updateButtons(){
